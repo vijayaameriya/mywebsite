@@ -488,11 +488,21 @@
             }
         });
 
-        // JavaScript to toggle the menu
-        function toggleMenu() {
-            const navLinks = document.querySelector('nav ul');
-            navLinks.classList.toggle('show');
-        }
+       // JavaScript to toggle the menu
+function toggleMenu() {
+    const navLinks = document.querySelector('nav ul');
+    navLinks.classList.toggle('show');
+}
+
+// Add event listener to each navigation link to close the menu on click
+const navLinks = document.querySelectorAll('nav ul li a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinksContainer = document.querySelector('nav ul');
+        navLinksContainer.classList.remove('show'); // Close the menu
+    });
+});
+
 
 
     </script>
