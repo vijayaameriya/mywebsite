@@ -1,11 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <meta name="description" content="Vijay Jangid's portfolio showcasing skills in web development, app development, and design.">
+    <meta name="keywords" content="portfolio, web developer, app developer, designer, CAD-CAM expert">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vijay Jangid - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* Global Styles */
+        body {
+            font-family: 'Tw Cen MT', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5EFFF;
+            /* Lightest background color */
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1,h2 {
+            font-family: "Montserrat Alternates", serif;
+            /* Custom font for headings */
+            text-align: center;
+            text-transform: capitalize;
+        }
+        
+        .bold {
+            font-weight: 400;
+            font-family: "Carter One", serif;
+            letter-spacing: 7px;
+        }
+        
+        /* Navbar Styles */
+        nav {
+            /* background-color: #8A7FF3; */
+            background: linear-gradient(135deg, #8A7FF3, #6a5acd);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: "Carter One", serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 35px;
+            /* Increased space between navbar items */
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            transition: transform 0.2s ease-in-out;
+            transform: scale(1.1);
+        }
+
+        nav.sticky {
+            background-color: #8A7FF3;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #e0d8ff;
+            color: #333;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+            font-weight: lighter;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 80px;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 3em;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        .skills,
+        .projects,
+        .contact,
+        .join-form {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skill,
+        .project,
+        .contact-info,
+        .join-form {
+            background-color: #E5D9F2;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover,
+        .project:hover,
+        .contact-info:hover,
+        .join-form:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom Buttons */
+        .button {
+            font-weight: bold;
+            background-color: #A294F9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #7F6AE6;
+        }
+
+        /* Input Fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #34495e;
+            background-color: #F5EFFF;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            border-color: #A294F9;
+            outline: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #A294F9;
+            color: black;
+            /* Black text color for copyright */
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #F5EFFF;
+            text-decoration: none;
+        }
+
+        /* Decorative Join Section */
+        .join-form input[type="submit"] {
+            background-color: #A294F9;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .join-form input[type="submit"]:hover {
+            background-color: #7F6AE6;
+        }
+
+        /* Centered Join Section */
+        .join-form {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        /* Project Images and Titles */
+        .project img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+        .project .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Contact Info Styling */
+        .contact-info {
+            width: 200px;
+            padding: 15px;
+            background-color: #E5D9F2;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-info:hover {
+            background-color: #A294F9;
+        }
+
+        /* Corner Logo */
+        .corner-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: #A294F9;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Contact Info Styling */
+        .contact-info h3 {
+            letter-spacing: 1.3px;
+            /* Adjust the spacing as needed */
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Vijay Aameriya</h1>
+
+    <!-- Corner Logo -->
+    <div class="corner-logo">Vijay Jangid</div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Vijay Jangid</div>
+        <ul>
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1 class="bold">VIJAY JANGID</h1>
+        <p>Web Developer | App Developer | Designer | CAD-CAM Expert | Problem Solver</p>
+    </header>
+
+    <!-- Intro Section -->
+    <section id="intro">
+        <h2 class="section-title">Introduction</h2>
+        <p class="intro-text">Hi, I'm Vijay Jangid, a passionate web developer with expertise in creating beautiful and
+            functional websites. I specialize in front-end and back-end development. Welcome to my portfolio!</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/html-5.png" alt="HTML5">
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/css3.png" alt="CSS3">
+                <h3>CSS3</h3>
+            </div>
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/javascript.png" alt="JavaScript">
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/kotlin.png" alt="Kotlin">
+                <h3>Kotlin</h3>
+            </div>
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/flutter.png" alt="Flutter">
+                <h3>Flutter</h3>
+            </div>
+            <div class="skill">
+                <img src="https://img.icons8.com/color/150/000000/python.png" alt="Python">
+                <h3>Python</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://img.icons8.com/?size=500w&id=TD9s05GkYEHD&format=png" alt="Project 1" loading="lazy">
+                <h3>Project One</h3>
+            </div>
+            <div class="project">
+                <img src="https://img.icons8.com/?size=500w&id=TD9s05GkYEHD&format=png" alt="Project 2" loading="lazy">
+                <h3>Project Two</h3>
+            </div>
+            <div class="project">
+                <img src="https://img.icons8.com/?size=500w&id=TD9s05GkYEHD&format=png" alt="Project 3" loading="lazy">
+                <h3>Project Three</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section (Gmail and Phone Input) -->
+    <section id="join">
+        <h2 class="section-title">Join My Newsletter</h2>
+        <div class="join-form">
+            <input type="email" name="email" placeholder="Enter your Gmail" required>
+            <input type="tel" name="phone" placeholder="Enter your phone number" required>
+            <input type="submit" value="Join Now">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact">
+            <a style="text-decoration: none; color: #222222;" href="mailto:vijayaameriya.dev@gmail.com" target="_blank"
+                class="contact-info">
+                <h3>GMAIL</h3>
+            </a>
+            <a style="text-decoration: none; color: #222222;" href="https://github.com/vijayaameriya" target="_blank"
+                class="contact-info">
+                <h3>GITHUB</h3>
+            </a>
+            <a style="text-decoration: none; color: #222222;" href="https://t.me/VijayAameriya" target="_blank"
+                class="contact-info">
+                <h3>TELEGRAM</h3>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vijay Jangid | All Rights Reserved</p>
+    </footer>
+    <script>
+        const form = document.querySelector('.join-form');
+form.addEventListener('submit', (event) => {
+    const email = form.querySelector('input[type="email"]');
+    const phone = form.querySelector('input[type="tel"]');
+    if (!email.value || !phone.value) {
+        event.preventDefault();
+        alert('Please fill in all fields.');
+    }
+});
+
+    </script>
 </body>
+
 </html>
